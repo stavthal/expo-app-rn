@@ -18,7 +18,9 @@ const Card = ({ num, handleNum, handleConfirm, handleReset }) => {
       />
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonContainer}>
-          <PrimaryButton onPress={handleReset}>Reset</PrimaryButton>
+          <PrimaryButton disabled={num === ""} onPress={handleReset}>
+            Reset
+          </PrimaryButton>
         </View>
 
         <View style={styles.buttonContainer}>
@@ -36,11 +38,17 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 30,
     backgroundColor: theme.colors.mediumBlue,
-    elevetaion: 8, // android only property
-    shadowOffset: { widht: 0, height: 2 },
-    shadowColor: "black",
-    shadowRadius: 6,
-    shadowOpacity: 1.25,
+
+    // shadows
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   instructionText: {
     fontSize: 25,

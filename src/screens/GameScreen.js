@@ -20,7 +20,7 @@ const generateRandomBetween = (min, max, exclude) => {
 let minBoundary = 1;
 let maxBoundary = 100;
 
-export default GameScreen = ({ userNumber, onGameOver }) => {
+export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
   const [generatedNum, setGeneratedNum] = useState(
     generateRandomBetween(1, 100, userNumber)
   );
@@ -46,6 +46,7 @@ export default GameScreen = ({ userNumber, onGameOver }) => {
     if (generatedNum == userNumber) {
       minBoundary = 1;
       maxBoundary = 100;
+      setRounds(roundsPlayed);
       onGameOver();
     }
   }, [generatedNum]);
