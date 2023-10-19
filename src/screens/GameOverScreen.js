@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     marginVertical: 100,
     fontSize: 40,
     textAlign: "center",
-    color: "white",
+    color: theme.colors.grey300,
 
     // shadows
     shadowColor: "#000",
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
   roundsPlayed: {
     fontSize: 22,
-    color: "white",
+    color: theme.colors.grey300,
 
     shadowColor: "#000",
     shadowOffset: {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: "white",
+    color: theme.colors.grey300,
   },
 });
 

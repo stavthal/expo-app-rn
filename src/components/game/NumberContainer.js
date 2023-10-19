@@ -12,7 +12,7 @@ const NumberContainer = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 4,
-    borderColor: theme.colors.blue,
+    borderColor: theme.colors.secondary500,
     padding: 24,
     margin: 24,
     borderRadius: 8,
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   numberText: {
-    color: theme.colors.blue,
+    color: theme.colors.secondary500,
     fontSize: 36,
     fontWeight: "bold",
   },

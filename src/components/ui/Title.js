@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: theme.colors.blue,
+    color: theme.colors.secondary500,
     padding: 12,
     textAlign: "center",
     marginHorizontal: 20,
     marginVertical: 30,
     borderWidth: 2,
-    borderColor: theme.colors.blue,
+    borderColor: theme.colors.secondary500,
   },
 });
 

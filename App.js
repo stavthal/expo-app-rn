@@ -45,7 +45,7 @@ export default function App() {
   }
   return (
     <LinearGradient
-      colors={[theme.colors.teal, theme.colors.blue]}
+      colors={[theme.colors.primary500, theme.colors.secondary500]}
       style={styles.rootScreen}
     >
       <ImageBackground

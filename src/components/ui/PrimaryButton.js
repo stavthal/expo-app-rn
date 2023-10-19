@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   buttonInnerContainer: {
-    backgroundColor: theme.colors.blue,
+    backgroundColor: theme.colors.secondary500,
     borderRadius: 28,
     paddingVertical: 8,
     paddingHorizontal: 16,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   buttonText: {
-    color: "white",
+    color: theme.colors.grey300,
     textAlign: "center",
   },
 

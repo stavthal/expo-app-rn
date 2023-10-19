@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     marginVertical: 25,
     fontSize: 24,
     textAlign: "center",
-    color: "white",
+    color: theme.colors.grey300,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 35,
     borderRadius: 20,
-    backgroundColor: theme.colors.mediumBlue,
+    backgroundColor: theme.colors.secondary800,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
 
   playedRounds: {
-    color: "white",
+    color: theme.colors.grey300,
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 20,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   },
 
   playedRoundsCircle: {
-    backgroundColor: theme.colors.blue,
+    backgroundColor: theme.colors.secondary500,
     borderRadius: 100,
     height: 100,
     width: 100,
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
 
   playedRoundsValue: {
-    color: "white",
+    color: theme.colors.grey300,
     fontSize: 54,
   },
 });
