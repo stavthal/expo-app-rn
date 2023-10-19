@@ -16,7 +16,7 @@ function PrimaryButton({ children, onPress, disabled, fontSize }) {
       >
         <Text
           style={{
-            fontSize: children.length === 1 ? 28 : 16,
+            fontSize: children.length === 1 ? 28 : 18,
             ...styles.buttonText,
           }}
         >

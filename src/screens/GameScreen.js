@@ -1,5 +1,6 @@
 import { Alert, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { useEffect, useState } from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 // util
 import theme from "../utilities/Theme";
@@ -62,7 +63,7 @@ export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
               disabled={generatedNum < userNumber}
               onPress={nextGuessHandler.bind(this, "lower")}
             >
-              -
+              <Ionicons size={40} name="md-remove" />
             </PrimaryButton>
           </View>
 
@@ -71,7 +72,7 @@ export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
               disabled={generatedNum > userNumber}
               onPress={nextGuessHandler.bind(this, "greater")}
             >
-              +
+              <Ionicons size={40} name="md-add" />
             </PrimaryButton>
           </View>
         </View>

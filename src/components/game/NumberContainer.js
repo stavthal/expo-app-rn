@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   numberText: {
+    fontFamily: "open-sans-bold",
     color: theme.colors.secondary500,
     fontSize: 36,
-    fontWeight: "bold",
   },
 });
 
