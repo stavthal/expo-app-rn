@@ -38,7 +38,6 @@ export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
     );
 
     setRoundsPlayed(roundsPlayed + 1);
-    console.log(`${minBoundary}   ${maxBoundary}`);
   };
 
   // check if the opponent's guess is the correct number
