@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Extract android and ios folders
-        run: npx expo prebuild
       - uses: actions/checkout@v3
       - name: set up JDK 11
         uses: actions/setup-java@v3
