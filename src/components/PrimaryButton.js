@@ -1,5 +1,7 @@
 import { View, Text, Pressable, StyleSheet, Platform } from "react-native";
 
+import theme from "../utilities/Theme";
+
 function PrimaryButton({ children }) {
   const pressHandler = () => {
     alert("Pressed");
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   buttonInnerContainer: {
-    backgroundColor: "#72063c",
+    backgroundColor: theme.colors.blue,
     borderRadius: 28,
     paddingVertical: 8,
     paddingHorizontal: 16,

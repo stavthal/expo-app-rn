@@ -1,6 +1,7 @@
 import { TextInput, View, StyleSheet } from "react-native";
 
 import PrimaryButton from "../components/PrimaryButton";
+import theme from "../utilities/Theme";
 
 function StartGameScreen() {
   return (
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     marginTop: 100,
-    backgroundColor: "#52023c",
+    backgroundColor: theme.colors.mediumBlue,
     elevetaion: 8, // android only property
     shadowOffset: { widht: 0, height: 2 },
     shadowColor: "black",
@@ -44,9 +45,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     height: 50,
     fontSize: 32,
-    borderBottomColor: "#ddb52f",
+    borderBottomColor: theme.colors.teal,
     borderBottomWidth: 2,
-    color: "#ddb52f",
+    color: theme.colors.teal,
     fontWeight: "bold",
     marginVertical: 8,
   },

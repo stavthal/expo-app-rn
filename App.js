@@ -2,10 +2,14 @@ import { StyleSheet, View, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import StartGameScreen from "./src/screens/StartGameScreen";
+import theme from "./src/utilities/Theme";
 
 export default function App() {
   return (
-    <LinearGradient colors={["#4e0329", "#ddb52f"]} style={styles.rootScreen}>
+    <LinearGradient
+      colors={[theme.colors.teal, theme.colors.blue]}
+      style={styles.rootScreen}
+    >
       <ImageBackground
         style={styles.rootScreen}
         resizeMethod="cover"
