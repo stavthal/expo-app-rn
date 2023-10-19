@@ -1,63 +1,57 @@
-import { TextInput, View, StyleSheet } from "react-native";
+import {
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  Alert,
+  SafeAreaView,
+} from "react-native";
+import { useState } from "react";
 
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/ui/PrimaryButton";
 import theme from "../utilities/Theme";
+import Title from "../components/ui/Title";
+import Card from "../components/ui/Card";
 
-function StartGameScreen() {
+function StartGameScreen({ onPickNumber }) {
+  const [enteredNumber, setEnteredNubmer] = useState("");
+
+  const handleConfirm = () => {
+    const chosenNumber = parseInt(enteredNumber);
+
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      // show alert
+      Alert.alert(
+        "Invalid number!",
+        "Number has to be a number between 1 and 99.",
+        [{ text: "Okay", style: "destructive", onPress: handleReset }]
+      );
+      return;
+    }
+    onPickNumber(enteredNumber);
+  };
+
+  const handleReset = () => {
+    setEnteredNubmer("");
+  };
+
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.numberInput}
-        maxLength={2}
-        keyboardType="number-pad"
-        autoCapitalize="none"
-        autoCorrect={false}
+    <SafeAreaView style={styles.rootContainer}>
+      <Title>Guess my number</Title>
+      <Card
+        num={enteredNumber}
+        handleNum={setEnteredNubmer}
+        handleConfirm={handleConfirm}
+        handleReset={handleReset}
       />
-      <View style={styles.buttonsContainer}>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton style={styles.buttonContainer}>Reset</PrimaryButton>
-        </View>
-
-        <View style={styles.buttonContainer}>
-          <PrimaryButton>Confirm</PrimaryButton>
-        </View>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    marginHorizontal: 24,
-    borderRadius: 8,
-    padding: 16,
-    marginTop: 100,
-    backgroundColor: theme.colors.mediumBlue,
-    elevetaion: 8, // android only property
-    shadowOffset: { widht: 0, height: 2 },
-    shadowColor: "black",
-    shadowRadius: 6,
-    shadowOpacity: 1.25,
-  },
-  numberInput: {
-    alignSelf: "center",
-    width: 50,
-    textAlign: "center",
-    height: 50,
-    fontSize: 32,
-    borderBottomColor: theme.colors.teal,
-    borderBottomWidth: 2,
-    color: theme.colors.teal,
-    fontWeight: "bold",
-    marginVertical: 8,
-  },
-  buttonsContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-
-  buttonContainer: {
+  rootContainer: {
     flex: 1,
+    marginTop: 100,
   },
 });
 

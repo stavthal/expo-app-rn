@@ -1,23 +1,27 @@
 import { View, Text, Pressable, StyleSheet, Platform } from "react-native";
 
-import theme from "../utilities/Theme";
+import theme from "../../utilities/Theme";
 
-function PrimaryButton({ children }) {
-  const pressHandler = () => {
-    alert("Pressed");
-  };
+function PrimaryButton({ children, onPress, disabled, fontSize }) {
   return (
     <View style={{ ...styles.buttonOuterContainer }}>
       <Pressable
         style={({ pressed }) =>
-          pressed && Platform.OS === "ios"
+          disabled || (pressed && Platform.OS === "ios")
             ? [styles.buttonInnerContainer, styles.pressed]
             : styles.buttonInnerContainer
         }
-        onPress={pressHandler}
+        onPress={!disabled ? onPress : null}
         android_ripple={{ color: "#640233a" }}
       >
-        <Text style={styles.buttonText}>{children}</Text>
+        <Text
+          style={{
+            fontSize: children.length === 1 ? 28 : 16,
+            ...styles.buttonText,
+          }}
+        >
+          {children}
+        </Text>
       </Pressable>
     </View>
   );
@@ -38,6 +42,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     elevation: 2,
     margin: 4,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   buttonText: {
     color: "white",
