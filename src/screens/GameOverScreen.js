@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import theme from "../utilities/Theme";
 
@@ -7,8 +7,16 @@ const GameOverScreen = ({ restartGame, roundsPlayed }) => {
     <SafeAreaView>
       <View style={styles.container}>
         <Text style={styles.gameOver}>Game is over</Text>
+        <View style={styles.imageContainer}>
+          <Image
+            source={require("../../assets/images/success.png")}
+            style={styles.image}
+          />
+        </View>
         <View style={styles.roundsRow}>
-          <Text style={styles.roundsPlayed}>Rounds played: {roundsPlayed}</Text>
+          <Text style={styles.roundsPlayed}>
+            Your guess was found by the computer after: {roundsPlayed}
+          </Text>
         </View>
         <View style={styles.btnContainer}>
           <PrimaryButton onPress={restartGame}>Try again</PrimaryButton>
@@ -21,11 +29,27 @@ const GameOverScreen = ({ restartGame, roundsPlayed }) => {
 const styles = StyleSheet.create({
   container: {},
 
+  imageContainer: {
+    borderRadius: 100,
+    borderWidth: 0.8,
+    borderColor: "black",
+    height: 200,
+    width: 200,
+    overflow: "hidden",
+    alignSelf: "center",
+  },
+
+  image: {
+    height: "100%",
+    width: "100%",
+  },
+
   gameOver: {
-    marginVertical: 100,
+    marginVertical: 80,
     fontSize: 40,
     textAlign: "center",
     color: theme.colors.grey300,
+    fontFamily: "Lobster",
 
     // shadows
     shadowColor: "#000",
@@ -50,6 +74,7 @@ const styles = StyleSheet.create({
   roundsPlayed: {
     fontSize: 22,
     color: theme.colors.grey300,
+    marginHorizontal: "3%",
 
     shadowColor: "#000",
     shadowOffset: {
