@@ -1,4 +1,11 @@
-import { Alert, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { useEffect, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -7,6 +14,7 @@ import theme from "../utilities/Theme";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import GuessLogItem from "../components/game/GuessLogItem";
 
 const generateRandomBetween = (min, max, exclude) => {
   const randomNum = Math.floor(Math.random() * (max - min)) + min;
@@ -22,10 +30,16 @@ let minBoundary = 1;
 let maxBoundary = 100;
 
 export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
-  const [generatedNum, setGeneratedNum] = useState(
-    generateRandomBetween(1, 100, userNumber)
-  );
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
+  const [generatedNum, setGeneratedNum] = useState(initialGuess);
   const [roundsPlayed, setRoundsPlayed] = useState(0);
+  const [prevGuessRounds, setGuessRounds] = useState([initialGuess]);
+
+  const newRndNum = generateRandomBetween(
+    minBoundary,
+    maxBoundary,
+    generatedNum
+  );
 
   const nextGuessHandler = (dir) => {
     if (dir === "lower") {
@@ -34,10 +48,8 @@ export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
       minBoundary = minBoundary + 1;
     }
 
-    setGeneratedNum(
-      generateRandomBetween(minBoundary, maxBoundary, generatedNum)
-    );
-
+    setGuessRounds((prevGuessRounds) => [newRndNum, ...prevGuessRounds]);
+    setGeneratedNum(newRndNum);
     setRoundsPlayed(roundsPlayed + 1);
   };
 
@@ -50,6 +62,8 @@ export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
       onGameOver();
     }
   }, [generatedNum]);
+
+  const guessRoundsListLength = prevGuessRounds.length;
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -76,6 +90,22 @@ export default GameScreen = ({ userNumber, onGameOver, setRounds }) => {
             </PrimaryButton>
           </View>
         </View>
+      </View>
+
+      <View>
+        {/* {prevGuessRounds.map((item) => (
+          <Text>{item}</Text>
+        ))} */}
+        <FlatList
+          data={prevGuessRounds}
+          renderItem={(item) => (
+            <GuessLogItem
+              roundNumber={guessRoundsListLength - item.index}
+              guess={item.item}
+            />
+          )}
+          style={styles.flatList}
+        />
       </View>
       <View style={styles.playedRoundsView}>
         <Text style={styles.playedRounds}> Rounds played: </Text>
@@ -134,7 +164,7 @@ const styles = StyleSheet.create({
   },
 
   playedRoundsView: {
-    marginVertical: 50,
+    marginVertical: 20,
     alignContent: "center",
     alignItems: "center",
   },
@@ -179,5 +209,21 @@ const styles = StyleSheet.create({
   playedRoundsValue: {
     color: theme.colors.grey300,
     fontSize: 54,
+  },
+
+  flatList: {
+    height: 200,
+    marginTop: 20,
+    alignSelf: "center",
+    width: "80%",
+    opacity: 0.75,
+    borderRadius: 40,
+    // paddingVertical: 40,
+    backgroundColor: theme.colors.primary500,
+  },
+
+  flatListText: {
+    fontSize: 14,
+    color: "#ffff",
   },
 });

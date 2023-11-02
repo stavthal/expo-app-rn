@@ -19,7 +19,7 @@ const GameOverScreen = ({ restartGame, roundsPlayed }) => {
           </Text>
         </View>
         <View style={styles.btnContainer}>
-          <PrimaryButton onPress={restartGame}>Try again</PrimaryButton>
+          <PrimaryButton onPress={restartGame}>Start new game</PrimaryButton>
         </View>
       </View>
     </SafeAreaView>
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
   container: {},
 
   imageContainer: {
-    borderRadius: 100,
+    borderRadius: 200,
     borderWidth: 0.8,
     borderColor: "black",
-    height: 200,
-    width: 200,
+    height: 300,
+    width: 300,
     overflow: "hidden",
     alignSelf: "center",
   },
