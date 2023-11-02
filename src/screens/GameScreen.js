@@ -216,10 +216,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: "center",
     width: "80%",
-    opacity: 0.75,
+    // opacity: 0.75,
     borderRadius: 40,
     // paddingVertical: 40,
-    backgroundColor: theme.colors.primary500,
+    // backgroundColor: theme.colors.primary500,
   },
 
   flatListText: {

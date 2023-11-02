@@ -16,12 +16,12 @@ export default GuessLogItem;
 
 const styles = StyleSheet.create({
   listItem: {
-    borderColor: theme.colors.primary800,
+    borderColor: theme.colors.secondary800,
+    backgroundColor: theme.colors.primary800,
     borderWidth: 1,
     borderRadius: 40,
     padding: 12,
     marginVertical: 8,
-    backgroundColor: theme.colors.accent500,
     flexDirection: "row",
     justifyContent: "space-between",
     width: "70%",
