@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   },
 
   flatList: {
-    height: 200,
+    height: 190,
     marginTop: 20,
     alignSelf: "center",
     width: "80%",
